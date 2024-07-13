@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from .models import User, Pet, Medicine, Appointment
 from .forms import UserForm, PetForm, MedicineForm, AppointmentForm
 
+'''
 def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
@@ -16,15 +17,33 @@ def register(request):
         form = UserForm()
     return render(request, 'register.html', {'form': form})
 
-def login_view(request):
+'''
+
+from django.shortcuts import render, redirect
+from .forms import UserForm
+
+def register(request):
     if request.method == "POST":
-        phone = request.POST.get('phone')
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'login.html')
+    else:
+        form = UserForm()
+    return render(request, 'register.html', {'form': form})
+
+
+def login_view(request):
+    if request.method == "GET":
+        name_of_owner = request.POST.get('name_of_owner')
         password = request.POST.get('password')
-        user = authenticate(request, username=phone, password=password)
+        user = authenticate(request, username=name_of_owner, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
-    return render(request, 'login.html')
+            return redirect('home.html')
+        return render(request, 'login.html')
+
+
 
 def pet_profile(request):
     if request.method == "POST":

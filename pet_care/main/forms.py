@@ -9,7 +9,7 @@ class UserForm(forms.ModelForm):
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ['name_of_pet', 'name_of_owner', 'user_phone']
+        fields = ['name_of_pet', 'name_of_owner', 'phone']
 
 class MedicineForm(forms.ModelForm):
     class Meta:
