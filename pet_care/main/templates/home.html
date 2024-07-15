@@ -1,80 +1,8 @@
-<!--
-
+<!-- main/templates/home.html -->
 <h2>Home Page</h2>
 <ul>
-  <li><a href="{% url 'register' %}">Register</a></li>
-  <li><a href="{% url 'login' %}">Login</a></li>
-  <li><a href="{% url 'pet_profile' %}">Pet Profile</a></li>
-  <li><a href="{% url 'medicine_view' %}">Medicines</a></li>
-  <li><a href="{% url 'appointment_view' %}">Appointments</a></li>
-  <li><a href="{% url 'diet_plan' %}">Diet Plan</a></li>
+    <li><a href="{% url 'pet_profile' %}">Pet Profile</a></li>
+    <li><a href="{% url 'medicine_view' %}">Medicines</a></li>
+    <li><a href="{% url 'appointment_view' %}">Appointments</a></li>
+    <li><a href="{% url 'diet_plan' %}">Diet Plan</a></li>
 </ul>
-
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Style the navigation bar */
-        nav {
-            background-color: #333;
-            padding: 1rem;
-        }
-
-        .navbar {
-            list-style-type: none;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .navbar li {
-            display: inline;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        /* Style the main content */
-        h2 {
-            text-align: center;
-            margin: 2rem 0;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation bar -->
-    <nav>
-        <ul class="navbar">
-            <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'pet_profile' %}">Pet Profile</a></li>
-            <li><a href="{% url 'medicine_view' %}">Medicines</a></li>
-            <li><a href="{% url 'appointment_view' %}">Appointments</a></li>
-            <li><a href="{% url 'diet_plan' %}">Diet Plan</a></li>
-        </ul>
-    </nav>
-
-    <h2>Home Page</h2>
-    <!-- Main content of the page can be added here -->
-</body>
-</html>
-

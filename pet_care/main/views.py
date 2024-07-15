@@ -1,12 +1,8 @@
-from django.shortcuts import render
-
-# Create your views here.
+# main/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from .models import User, Pet, Medicine, Appointment
 from .forms import UserForm, PetForm, MedicineForm, AppointmentForm
 
-'''
 def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
@@ -17,33 +13,23 @@ def register(request):
         form = UserForm()
     return render(request, 'register.html', {'form': form})
 
-'''
-
-from django.shortcuts import render, redirect
-from .forms import UserForm
-
-def register(request):
-    if request.method == "POST":
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'login.html')
-    else:
-        form = UserForm()
-    return render(request, 'register.html', {'form': form})
-
-
 def login_view(request):
-    if request.method == "GET":
-        name_of_owner = request.POST.get('name_of_owner')
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
         password = request.POST.get('password')
-        user = authenticate(request, username=name_of_owner, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home.html')
-        return render(request, 'login.html')
-
-
+        try:
+            user = User.objects.get(phone=phone)
+            if user.name_of_owner == name and user.password == password:
+                # Successfully logged in, set session and redirect to home
+                request.session['user_id'] = user.phone
+                return redirect('home')
+            else:
+                error_message = "Invalid credentials. Please try again."
+        except User.DoesNotExist:
+            error_message = "User does not exist. Please register."
+        return render(request, 'login.html', {'error_message': error_message})
+    return render(request, 'login.html')
 
 def pet_profile(request):
     if request.method == "POST":
@@ -70,4 +56,10 @@ def appointment_view(request):
     return render(request, 'appointment.html', {'form': form})
 
 def home(request):
-    return render(request, 'home.html')
+    if 'user_id' in request.session:
+        return render(request, 'home.html')
+    return redirect('login')
+
+
+def diet_plan(request):
+    return render(request,'diet_plan.html')

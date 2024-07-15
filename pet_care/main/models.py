@@ -15,7 +15,7 @@ class User(models.Model):
 class Pet(models.Model):
     name_of_pet = models.CharField(max_length=100)
     name_of_owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pets')
-    phone = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_phone = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name_of_pet

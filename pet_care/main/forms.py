@@ -6,10 +6,13 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['name_of_owner', 'password', 'phone']
 
+
+
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ['name_of_pet', 'name_of_owner', 'phone']
+        fields = ['name_of_pet', 'name_of_owner', 'user_phone']
+
 
 class MedicineForm(forms.ModelForm):
     class Meta:
