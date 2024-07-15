@@ -12,12 +12,22 @@ class UserForm(forms.ModelForm):
         }
 
 
-
-
 class PetForm(forms.ModelForm):
+    user_phone = forms.IntegerField(widget=forms.NumberInput(), required=True)
+
     class Meta:
         model = Pet
         fields = ['name_of_pet', 'name_of_owner', 'user_phone']
+
+    def clean_user_phone(self):
+        phone = self.cleaned_data['user_phone']
+        try:
+            user = User.objects.get(phone=phone)
+            return user
+        except User.DoesNotExist:
+            raise forms.ValidationError("User with this phone number does not exist.")
+
+
 
 
 class MedicineForm(forms.ModelForm):

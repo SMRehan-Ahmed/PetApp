@@ -31,6 +31,8 @@ def login_view(request):
         return render(request, 'login.html', {'error_message': error_message})
     return render(request, 'login.html')
 
+
+
 def pet_profile(request):
     if 'user_id' not in request.session:
         return redirect('login')
@@ -43,6 +45,9 @@ def pet_profile(request):
     else:
         form = PetForm()
     return render(request, 'pet_profile.html', {'form': form})
+
+
+
 
 def medicine_view(request):
     if 'user_id' not in request.session:
