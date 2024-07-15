@@ -1,10 +1,16 @@
 from django import forms
 from .models import User, Pet, Medicine, Appointment
 
+
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['name_of_owner', 'password', 'phone']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
+
 
 
 

@@ -26,7 +26,8 @@ urlpatterns = [
     path('medicine/', medicine_view, name='medicine_view'),
     path('appointment/', appointment_view, name='appointment_view'),
     path('diet_plan/', diet_plan, name='diet_plan'),
-    path('', home, name='home'),
+    path('', login_view, name='login'),
+    path('home/', home, name='home'),
 ]
 
 

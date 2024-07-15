@@ -32,6 +32,9 @@ def login_view(request):
     return render(request, 'login.html')
 
 def pet_profile(request):
+    if 'user_id' not in request.session:
+        return redirect('login')
+    
     if request.method == "POST":
         form = PetForm(request.POST)
         if form.is_valid():
@@ -42,10 +45,16 @@ def pet_profile(request):
     return render(request, 'pet_profile.html', {'form': form})
 
 def medicine_view(request):
+    if 'user_id' not in request.session:
+        return redirect('login')
+
     medicines = Medicine.objects.all()
     return render(request, 'medicine.html', {'medicines': medicines})
 
 def appointment_view(request):
+    if 'user_id' not in request.session:
+        return redirect('login')
+    
     if request.method == "POST":
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -56,9 +65,10 @@ def appointment_view(request):
     return render(request, 'appointment.html', {'form': form})
 
 def home(request):
-    if 'user_id' in request.session:
-        return render(request, 'home.html')
-    return redirect('login')
+    if 'user_id' not in request.session:
+        return redirect('login')
+    return render(request, 'home.html')
+
 
 
 def diet_plan(request):
