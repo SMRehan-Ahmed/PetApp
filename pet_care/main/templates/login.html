@@ -1,13 +1,110 @@
-<!-- main/templates/login.html -->
-<h2>Login</h2>
-{% if error_message %}
-    <p style="color:red;">{{ error_message }}</p>
-{% endif %}
-<form method="post">
-    {% csrf_token %}
-    <p><label for="name">Name:</label><input type="text" name="name"></p>
-    <p><label for="phone">Phone:</label><input type="text" name="phone"></p>
-    <p><label for="password">Password:</label><input type="password" name="password"></p>
-    <button type="submit">Login</button>
-</form>
-<p>New user? <a href="{% url 'register' %}">Register here</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Full-screen background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "pets.jpeg" %}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        /* Center the login box */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style the login box */
+        .login-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 1rem;
+        }
+
+        .login-box p {
+            margin-bottom: 1rem;
+        }
+
+        .login-box label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        .login-box input {
+            width: calc(100% - 110px);
+            padding: 0.5rem;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-box button {
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #575757;
+        }
+
+        .login-box a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="login-box">
+        <h2>Login</h2>
+        {% if error_message %}
+            <p style="color:red;">{{ error_message }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <p><label for="name">Name:</label><input type="text" name="name"></p>
+            <p><label for="phone">Phone:</label><input type="text" name="phone"></p>
+            <p><label for="password">Password:</label><input type="password" name="password"></p>
+            <button type="submit">Login</button>
+        </form>
+        <p>New user? <a href="{% url 'register' %}">Register here</a></p>
+    </div>
+</body>
+</html>
