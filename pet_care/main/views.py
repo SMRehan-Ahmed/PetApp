@@ -4,13 +4,14 @@ from .models import User, Pet, Medicine, Appointment
 from .forms import UserForm, PetForm, MedicineForm, AppointmentForm
 
 def register(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')
+            form.save()  # Saves the form data to the User model
+            return redirect('login')  # Assuming 'login' is the name of your login URL pattern
     else:
         form = UserForm()
+    
     return render(request, 'register.html', {'form': form})
 
 def login_view(request):
