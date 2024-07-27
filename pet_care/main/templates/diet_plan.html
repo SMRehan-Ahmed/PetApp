@@ -3,9 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Nutrition Guide</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            background: url('/static/final.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: black; /* Changed text color to black */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the main container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: black; /* Changed text color to black */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Style each section container */
+        .section-container {
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            background-color: #aac9e1; /* Light blue background */
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Style for the row containers */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .row > .section-container {
+            flex: 1;
+            min-width: calc(50% - 20px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .row > .section-container {
+                min-width: 100%;
+            }
+
+            .main-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p> Welcome to diet plan guys</p>
+    <div class="main-container">
+        <h1>Welcome to the Pet Nutrition Guide</h1>
+        
+        <p>Here is a detailed guide on the types of foods that provide the necessary nutrients for dogs and cats, including specific food items to incorporate into their diet plans.</p>
+
+        <div class="section-container proteins">
+            <h2>Foods Rich in Essential Nutrients for Dogs</h2>
+
+            <div class="row">
+                <div class="section-container">
+                    <h3>Proteins</h3>
+                    <ul>
+                        <li>Chicken: High-quality lean protein.</li>
+                        <li>Turkey: Lean protein source.</li>
+                        <li>Beef: Rich in protein and iron.</li>
+                        <li>Fish (Salmon, Tuna): High in protein and Omega-3 fatty acids.</li>
+                        <li>Eggs: Excellent source of protein and essential amino acids.</li>
+                    </ul>
+                </div>
+
+                <div class="section-container fats">
+                    <h3>Fats</h3>
+                    <ul>
+                        <li>Fish Oil: Rich in Omega-3 fatty acids.</li>
+                        <li>Chicken Fat: Good source of essential fatty acids.</li>
+                        <li>Flaxseed Oil: Provides Omega-3 and Omega-6 fatty acids.</li>
+                        <li>Coconut Oil: Contains medium-chain triglycerides beneficial for energy.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="section-container carbohydrates">
+                    <h3>Carbohydrates</h3>
+                    <ul>
+                        <li>Brown Rice: Easily digestible and provides energy.</li>
+                        <li>Sweet Potatoes: High in fiber and vitamins.</li>
+                        <li>Oatmeal: Good source of fiber and energy.</li>
+                        <li>Pumpkin: Rich in fiber and vitamins, aids in digestion.</li>
+                    </ul>
+                </div>
+
+                <div class="section-container vitamins-minerals">
+                    <h3>Vitamins and Minerals</h3>
+                    <ul>
+                        <li>Carrots: High in Vitamin A.</li>
+                        <li>Spinach: Rich in iron, calcium, and vitamins.</li>
+                        <li>Blueberries: Packed with antioxidants and vitamins.</li>
+                        <li>Apples (without seeds): Provide vitamins A and C, fiber.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container proteins">
+            <h2>Foods Rich in Essential Nutrients for Cats</h2>
+
+            <div class="row">
+                <div class="section-container">
+                    <h3>Proteins</h3>
+                    <ul>
+                        <li>Chicken: Lean protein source.</li>
+                        <li>Turkey: High in protein.</li>
+                        <li>Beef: Provides protein and iron.</li>
+                        <li>Fish (Salmon, Tuna): Rich in protein and Omega-3 fatty acids.</li>
+                        <li>Eggs: Great source of protein and essential amino acids.</li>
+                    </ul>
+                </div>
+
+                <div class="section-container fats">
+                    <h3>Fats</h3>
+                    <ul>
+                        <li>Fish Oil: Provides Omega-3 fatty acids.</li>
+                        <li>Chicken Fat: Essential fatty acids.</li>
+                        <li>Olive Oil: Good source of healthy fats.</li>
+                        <li>Animal Fats: Provides necessary fats for energy and skin health.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="section-container taurine">
+                    <h3>Taurine</h3>
+                    <ul>
+                        <li>Meat: Red meat, poultry, and fish are high in taurine.</li>
+                        <li>Seafood: Shellfish like shrimp and clams.</li>
+                        <li>Eggs: Good source of taurine.</li>
+                    </ul>
+                </div>
+
+                <div class="section-container vitamins-minerals">
+                    <h3>Vitamins and Minerals</h3>
+                    <ul>
+                        <li>Liver: High in vitamins A and B-complex.</li>
+                        <li>Pumpkin: Good source of fiber and vitamins.</li>
+                        <li>Green Beans: Provide fiber, vitamins, and minerals.</li>
+                        <li>Blueberries: Rich in antioxidants and vitamins.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container sample-diet-plan">
+            <h2>Diet Plan with Specific Foods</h2>
+
+            <div class="section-container">
+                <h3>For a Labrador Retriever Puppy (up to 1 year)</h3>
+                <ul>
+                    <li><strong>Morning:</strong>
+                        <ul>
+                            <li>1 cup of high-quality puppy kibble</li>
+                            <li>1 tablespoon of wet food</li>
+                            <li>A few slices of boiled chicken for added protein</li>
+                        </ul>
+                    </li>
+                    <li><strong>Midday:</strong>
+                        <ul>
+                            <li>1/2 cup of puppy kibble</li>
+                            <li>A few slices of boiled fish (e.g., salmon) for protein and Omega-3s</li>
+                            <li>1/4 cup of cooked pumpkin for fiber and vitamins</li>
+                        </ul>
+                    </li>
+                    <li><strong>Evening:</strong>
+                        <ul>
+                            <li>1 cup of puppy kibble</li>
+                            <li>1 tablespoon of wet food</li>
+                            <li>A small amount of boiled beef for protein and iron</li>
+                        </ul>
+                    </li>
+                    <li><strong>Treats:</strong>
+                        <ul>
+                            <li>Small pieces of apple (without seeds) or carrot sticks</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hydration:</strong>
+                        <ul>
+                            <li>Plenty of fresh water available at all times</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-container">
+                <h3>For a Senior Domestic Shorthair Cat (8+ years)</h3>
+                <ul>
+                    <li><strong>Morning:</strong>
+                        <ul>
+                            <li>1/2 cup of senior cat kibble</li>
+                            <li>1 tablespoon of wet food</li>
+                            <li>A few slices of boiled chicken or turkey for lean protein</li>
+                        </ul>
+                    </li>
+                    <li><strong>Midday:</strong>
+                        <ul>
+                            <li>1/4 cup of senior cat kibble</li>
+                            <li>A small amount of canned fish (e.g., tuna in water) for protein and Omega-3s</li>
+                        </ul>
+                    </li>
+                    <li><strong>Evening:</strong>
+                        <ul>
+                            <li>1/2 cup of senior cat kibble</li>
+                            <li>1 tablespoon of wet food</li>
+                            <li>A few slices of boiled beef or lamb for protein and iron</li>
+                        </ul>
+                    </li>
+                    <li><strong>Treats:</strong>
+                        <ul>
+                            <li>Small pieces of cooked egg or a couple of blueberries</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hydration:</strong>
+                        <ul>
+                            <li>Plenty of fresh water available at all times</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

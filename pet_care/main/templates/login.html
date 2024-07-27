@@ -9,7 +9,7 @@
         /* Basic reset */
         * {
             margin: 0;
-            padding: 10px;
+            padding: 0;
             box-sizing: border-box;
         }
 
@@ -20,7 +20,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('{% static "pets.jpeg" %}');
+            background-image: url('{% static "bg.jpeg" %}');
             background-size: cover;
             background-position: center;
             opacity: 0.7;
@@ -39,10 +39,11 @@
         /* Style the login box */
         .login-box {
             background-color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 300px; /* Adjusted width */
         }
 
         .login-box h2 {
@@ -55,12 +56,12 @@
 
         .login-box label {
             display: inline-block;
-            width: 100px;
+            width: 80px;
             text-align: right;
         }
 
         .login-box input {
-            width: calc(100% - 110px);
+            width: calc(100% - 90px);
             padding: 0.5rem;
             margin-left: 10px;
             border: 1px solid #ccc;
@@ -74,6 +75,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-top: 1rem;
         }
 
         .login-box button:hover {

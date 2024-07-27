@@ -1,9 +1,104 @@
-<form method="POST" action="{% url 'appointment_view' %}">
-    {% csrf_token %}
-    {% for field in form %}
-        {{ field.label_tag }}
-        {{ field }}
-        <br>
-    {% endfor %}
-    <button type="submit">Book Appointment</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/static/final.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .appointment-form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px; /* Increased max-width for better form visibility */
+        }
+
+        .appointment-form-container h2 {
+            margin-top: 0;
+            color: #333333;
+            text-align: center;
+            font-size: 24px; /* Increased font size for header */
+        }
+
+        .appointment-form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            font-size: 18px; /* Increased font size for labels */
+        }
+
+        .appointment-form-container .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            justify-content: space-between; /* Ensure space between label and checkbox */
+        }
+
+        .appointment-form-container .checkbox-container input {
+            margin-left: 10px; /* Space between checkbox and text */
+        }
+
+        .appointment-form-container input,
+        .appointment-form-container select,
+        .appointment-form-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 18px; /* Increased font size for input fields */
+        }
+
+        .appointment-form-container button {
+            width: 100%;
+            padding: 15px; /* Increased padding for a larger button */
+            background-color: #668D94;
+            border: none;
+            color: white;
+            font-size: 20px; /* Increased font size for button text */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center; /* Center the text inside the button */
+        }
+
+        .appointment-form-container button:hover {
+            background-color: #1d4a6d;
+        }
+    </style>
+</head>
+<body>
+    <div class="appointment-form-container">
+        <h2>Book Appointment</h2>
+        <form method="POST" action="{% url 'appointment_view' %}">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.field.widget.input_type == "checkbox" %}
+                    <div class="checkbox-container">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% else %}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Book Appointment</button>
+        </form>
+    </div>
+</body>
+</html>

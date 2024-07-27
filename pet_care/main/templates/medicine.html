@@ -1,7 +1,99 @@
-<!-- main/templates/medicine.html -->
+<!-- main/templates/medicine.html -
 <h2>Medicines</h2>
 <ul>
     {% for medicine in medicines %}
         <li>{{ medicine.name_of_medicine }} ( {{medicine.purpose_of_medicine}} )- {{ medicine.price }}</li>
     {% endfor %}
-</ul>
+</ul>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines</title>
+    {% load static %}
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Full-screen background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "final.jpeg" %}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        /* Center the medicine list box */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style the medicine list box */
+        .medicine-box {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 1200px; /* Adjust max-width as needed */
+        }
+
+        .medicine-box h2 {
+            margin-bottom: 1rem;
+        }
+
+        .medicine-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        .medicine-list li {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(32% - 1rem); /* Adjusted width to increase size */
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .medicine-list li div {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="medicine-box">
+        <h2>Medicines</h2>
+        <ul class="medicine-list">
+            {% for medicine in medicines %}
+                <li>
+                    <div><strong>{{ medicine.name_of_medicine }}</strong></div>
+                    <div>{{ medicine.purpose_of_medicine }}</div>
+                    <div>{{ medicine.price }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
